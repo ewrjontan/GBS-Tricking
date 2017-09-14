@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<link type = 'text/css' rel = 'stylesheet' href = 'stylesheet.css'/>
+		<script src="https://use.fontawesome.com/a037c8550a.js"></script>
 		<title>GBS Tricking</title>
 	</head>
 
@@ -12,23 +13,26 @@
 	<!--<body>-->
 
 		<div id="navigationContainer">
-			<div id = "logo">GBS TRICKING</div>
+			<a id = "logo" href="index.html">GBS TRICKING</a>
 
 			<div id ="navigationMenu">
 				<a class="nav-item" href = "index.html">HOME</a>
 				<p>|</p>
-				<a class="nav-item" href = "">MEDIA</a>
+				<a class="nav-item" href = "media.html">MEDIA</a>
 				<p>|</p>
 				<a class="nav-item"  href = "events.html">EVENTS</a>
 				<p>|</p>
-				<a class="nav-item"  href = "">BLOG</a>
+				<a class="nav-item"  href = "blog.html">BLOG</a>
 				<p>|</p>
 				<a class="nav-item"  href = "store.html">STORE</a>
 			</div>
 
 		</div>
 
+		<!--Scroll Count: <span></span>-->
+
 		<div id = 'slideshow-container'>
+			<img id="filler-image" src = 'homess1.jpg'>
 			<img class="slideshow-image" src = 'homess1.jpg'>
 			<img class="slideshow-image" src = 'homess2.jpg'>
 			<img class="slideshow-image" src = 'homess3.jpg'>
@@ -36,20 +40,20 @@
 
 		</div>
 
-		<div id = 'homeContainer'>
+		<div id = 'homeContainer' ontouchstart="this.classList.toggle('hover');">
 			<div class="homeContent" id = "homeOne" >
-				<h1>Who We Are</h1>
-				<p>We are a small tricking group located in Omaha, Nebraska. Our group consists of trickers, free runners, gymnasts and breakdancers.</p>
+				<div class="front"><h1>Who Are We?</h1></div>
+				<div class="back"><h3>We are a small tricking/parkour group located in Omaha, Nebraska. Our group consists of trickers, free runners, gymnasts and breakdancers.</h3></div>
 			</div>
 
 			<div class="homeContent" id = "homeTwo">		
-				<h1>What is Tricking?</h1>
-				<p>Tricking is a mix of martial arts and gymnastics; flips, twists and kicks are the weapons of choice. Explosive movements are combined into a spectacular form of art and expression. </p>
+				<div class="front"><h1>What is Tricking?</h1></div>
+				<div class="back"><h3>Tricking is a mix of martial arts and gymnastics; flips, twists and kicks are the weapons of choice. Explosive movements are combined into a spectacular form of art and expression.</h3></div>
 			</div>		
 
 			<div class="homeContent" id = "homeThree">
-				<h1>Where We Trick?</h1>
-				<p>Wherever we want! The beauty of tricking is that it can be done just about anywhere; inside, outside, on grass, on concrete. The world is your sandbox. </p>
+				<div class="front"><h1>Where Do We Trick?</h1></div>
+				<div class="back"><h3>Wherever we want! The beauty of tricking is that it can be done just about anywhere; inside, outside, on grass, on concrete. The world is your sandbox.</h3></div>
 			</div>
 		</div>
 
@@ -57,30 +61,39 @@
 			<h1>Meet Some of the Guys</h1>
 			
 			<div id="profile-container">	
-				<div class="profile">
+				<div class="profile" id="zach-profile">
 					<img class="profile-picture" src="zachprofile.jpg">
 					<h3>Zach</h3>
 				</div>
 
-				<div class="profile">
+				<div class="profile" id="jon-profile">
 					<img class="profile-picture" src="jonprofile.jpg">
 					<h3>Jon</h3>
 				</div>
 
-				<div class="profile">
+				<div class="profile" id="tj-profile">
 					<img class="profile-picture" src="tjprofile.jpg">
 					<h3>TJ</h3>
 				</div>
-			</div>
 
+			</div>
+			<!-- this will be appended via jscript -->
+			<!--<div id="profile-info-container"><p>Hello asdjlasdjaksdjasldjlj</p></div>-->
+			<!-- <div id="profile-info-container"></div> -->	
 		</div>
 
 	</body>
 
 	<footer>
+		<div id="social-media-container">
+			<a class="sm-icon" href="http://www.facebook.com"><i class="fa fa-facebook-official fa-4x" aria-hidden="true"></i></a>
+			<a class="sm-icon" href="http://www.twitter.com"><i class="fa fa-twitter fa-4x" aria-hidden="true"></i></a>
+			<a class="sm-icon" href="http://www.youtube.com"><i class="fa fa-youtube fa-4x" aria-hidden="true"></i></a>
+		</div>
+
 		<div id="copy-container">
 			<div class="footer-item">All rights reserved</div>
-			<div class="footer-item">E-mail: Jonscardenas@gmail.com</div>
+			<div class="footer-item">Contact: webmaster@gbstricking.com</div>
 		</div>
 	</footer>
 </html>

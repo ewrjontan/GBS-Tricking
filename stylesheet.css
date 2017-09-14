@@ -8,13 +8,12 @@ body, h1{
 }
 
 a:link{
-	color: black;
 	text-decoration: none;
 }
 
-a:visited{
+/*a:visited{
 	color: black;
-}
+}*/
 
 /*.toolbar{
 	position: relative;
@@ -57,22 +56,30 @@ a:visited{
 #logo{
 	font-weight: bold;
 	font-size: 3em;
-	width: 50%;
+	/*width: 50%;*/
+	color: black;
+	background-color: white;
 }
 
 #slideshow-container{
 	position: relative;
 	margin-top: 150px;
 	width: 100%;
-	height: 500px;
 	background-color: none;
+	max-width: 1920px;
+}
 
+#filler-image{
+	position: relative;
+  	width: 100%;
+  	opacity: 0;
+  	z-index: -2;
 }
 
 .slideshow-image{
 	position: absolute;
 	width: 100%;
-	max-height: 500px;
+	top: 0;
 	opacity: 0;
 	-webkit-transition: opacity 2.5s linear; /* Safari */
     transition: opacity 2.5s linear;
@@ -80,13 +87,77 @@ a:visited{
 
 #homeContainer{
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	position: relative;
-	
-	background-color: white;
-	color: black;
-	height: 250px;
+	/*background-color: #2377ff;*/
+	/*background-color: #4f4f4f;*/
+	background-image: url("grass.png");
+	background-size: 100%;
+	background-position: top;
+    background-repeat: no-repeat;
+	height: 300px;
+	width: 100%;
+	/*margin-top: 150px;*/
+	perspective: 1000px;
 }
+
+.homeContent{
+	transition: 1s;
+	transform-style: preserve-3d;
+	position: relative;
+	width:  100%;
+	border: 5px solid white;
+	color: white;
+
+}
+
+/*.homeContent p{
+	padding-left: 25px;
+	padding-right: 25px;
+}*/
+
+/*for div flip*/
+.front, .back {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden; 
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+	text-align: center;
+	/*margin-top: 125px;*/
+	/*padding-top: 100px;*/
+}
+
+.front h1{
+	margin-top: 125px;
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+	/*margin-top: -190px;*/
+	/*padding-left: 75px;
+	padding-right: 75px;*/
+	background-color: white;
+}
+
+.back h3{
+	margin-top: 100px;
+	padding-left: 75px;
+	padding-right: 75px;
+}
+
+
+/*End div flip*/
+
 
 #events-container{
 	text-align: center;
@@ -97,30 +168,47 @@ a:visited{
 	height: 500px;
 }
 
+#media-container{
+	text-align: center;
+	color: black;
+	background-color: none;
+	margin-top: 150px;
+	padding-top: 50px;
+	height: 500px;
+}
+
+#blog-container{
+	text-align: center;
+	color: black;
+	background-color: none;
+	margin-top: 150px;
+	padding-top: 50px;
+	height: 500px;
+}
+
 #coming-soon{
-	background-color: gray;
+	background-color: #ff3333;;
 	width: 100%;
 	height: 50px;
 	margin-top: 45px;
 	padding-top: 25px;
 }
 
-.homeContent{
-	width: 30%;
-	padding-top: 65px;
-}
-
-.homeContent h1{
-	text-align: center;
-	padding-bottom: 25px;
-}
 
 #second-container{
-	background-color: none;
-	color: black;
+	/*background-color: #ff3333;*/
+	background-color: #f45050;
+	color: white;
 	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 50px;
+	height: 600px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	position: relative;
+}
+
+#second-container h1{
+	background-color: none;
+	padding-top: 50px;
 }
 
 #profile-container{
@@ -128,27 +216,50 @@ a:visited{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
-	
+	margin-top: 50px;
+	width: 100%;
 }
 
-.profile{
-	/*width: 350px;
-	height: 400px;
-	box-shadow: 0 0 10px 0px black;
-	border-radius: 25px;*/
-	margin-top: 50px;
-	margin-bottom: 50px;
-}
 
 .profile-picture{
-	/*box-sizing: border-box;*/
-	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
+	-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%);
 	width: 200px;
 	height: 200px;
 	background-color: white;
 	border-radius: 100%;
-	margin-top: 25px;
+}
+
+
+#zach-profile{
+	margin-top: 125px;
+}
+
+#tj-profile{
+	margin-top: 125px;
+}
+
+.profile{
+	background-color: none;
+	height: 250px;
+}
+
+#profile-info-container{
+	background-color: white;
+	height: 100px;
+	width: 300px;
+	position: relative;
+	top: -75px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 15px;
+	color: black;
+}
+
+#profile-info-container p{
+	text-align: center;
+	padding-left: 25px;
+	padding-right: 25px;
 }
 
 #store-container{
@@ -233,15 +344,39 @@ a:visited{
 	align-items: center;
 }
 
+.add-to-cart-button{
+	color: white;
+	background-color: #bfbfbf;
+	width: 100px;
+	text-align: center;
+	border-radius: 5px;
+	font-style: normal;
+	cursor: pointer;
+}
+
 
 /*xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Footer xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*/
 footer{
 	width: 100%;
-	height: 200px;
-	background-color: #bfbfbf;
-	color: white;
+	height: 250px;
+	background-color: white;
+	/*background-color: #bfbfbf;*/
+	color: black;
 	position: relative;
-	
+	border-top: 1px solid black;
+}
+
+#social-media-container{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: auto;
+	width: 30%;
+	padding-top: 75px;
+}
+
+.sm-icon{
+	color: black;
 }
 
 #copy-container{
@@ -249,5 +384,6 @@ footer{
 	flex-direction: row;
 	justify-content: space-between;
 	margin: auto;
-	width: 50%;
+	width: 75%;
+	padding-top: 75px;
 }

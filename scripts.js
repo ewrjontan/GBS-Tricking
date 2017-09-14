@@ -1,58 +1,4 @@
-var x = 0;
 
-$(document).ready(function(){
-
-	$(window).scroll(function(){
-  		//$("span").text(x+=1);
-    	console.log($(window).scrollTop());
-    	
-    	if ($(window).scrollTop() >= 150){
-    		console.log("YOOO!");
-      		$("#navigationContainer").css("position", "fixed");
-      		$("#navigationContainer").css("top", "0px");
-      		$("#slideshow-container").css("margin-top", "215px");
-      		$("#store-container").css("margin-top", "215px");
-      		$("#events-container").css("margin-top", "215px");
-    	}else if ($(window).scrollTop() <150){
-    		$("#navigationContainer").css("position", "relative");
-      		$("#navigationContainer").css("top", "150px");
-      		$("#slideshow-container").css("margin-top", "150px");
-      		$("#store-container").css("margin-top", "150px");
-      		$("#events-container").css("margin-top", "150px");
-    	};
-  	});
-	
-	$(".nav-item").hover(
-		function(){
-			$(this).css("text-decoration", "underline");
-		},
-		function(){
-			$(this).css("text-decoration", "none");
-		});
-
-	if ($("body").is(".home")){
-		slideshow();
-		$(".profile-picture").hover(
-		function(){
-			$(this).css("filter", "grayscale(0%)");
-		},
-		function(){
-			$(this).css("filter", "grayscale(100%)");
-		});	
-	};
-	
-	if ($("body").is(".store")){
-		displayProducts();
-		
-		$(".fa-shopping-cart").hover(
-			function(){
-				$(this).css("color", "gray");
-			},
-			function(){
-				$(this).css("color", "black");
-			});
-	};
-});
 
 
 /*window.onload = slideshow();*/
@@ -196,8 +142,10 @@ function displayProducts(){
 
 		var itemCartTemp = document.createElement("i");
 
-		itemCartTemp.setAttribute("class", "fa fa-shopping-cart fa-2x");
+		//itemCartTemp.setAttribute("class", "fa fa-shopping-cart fa-2x");
+		itemCartTemp.setAttribute("class", "add-to-cart-button");
 		itemCartTemp.setAttribute("id", "item-" + i + "-cart");
+		itemCartTemp.innerHTML="Add To Cart";
 
 		document.getElementById("item-" + i + "-price-cart-flex").appendChild(itemCartTemp);
 
@@ -207,6 +155,130 @@ function displayProducts(){
 
 
 }
+
+function profile(first, last, age, about) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.about = about;
+};
+
+var Zach = new profile("Zach", "Kalantjakos", 24, "Zach was a free-runner for several years before discovering tricking. Insane style and huge personality. Zach is a great teacher and is always willing to help new trickers.");
+var Jon = new profile("Jon", "Cardenas", 28, "Jon has been around since tricking was in its infancy. Greats such as Juji Mufu, Steve Terrada and the like were huge influences.");
+var TJ = new profile("TJ", "Cech", 19, "TJ has been free-running and tricking for over five years. TJ is a parkour instructor at our local gym and is a natural athlete. TJ's skill level is out-of-this-world for his age.");
+
+var profiles = [Zach, Jon, TJ];
+
+var x = 0;
+
+$(document).ready(function(){
+
+	$(window).scroll(function(){
+  		//$("span").text(x+=1);
+    	console.log($(window).scrollTop());
+    	
+    	if ($(window).scrollTop() >= 150){
+    		console.log("YOOO!");
+      		$("#navigationContainer").css("position", "fixed");
+      		$("#navigationContainer").css("top", "0px");
+      		$("#slideshow-container").css("margin-top", "215px");
+      		$("#store-container").css("margin-top", "215px");
+      		$("#events-container").css("margin-top", "215px");
+    	}else if ($(window).scrollTop() <150){
+    		$("#navigationContainer").css("position", "relative");
+      		$("#navigationContainer").css("top", "150px");
+      		$("#slideshow-container").css("margin-top", "150px");
+      		$("#store-container").css("margin-top", "150px");
+      		$("#events-container").css("margin-top", "150px");
+    	};
+  	});
+	
+	$(".nav-item").hover(
+		function(){
+			$(this).css("text-decoration", "underline");
+		},
+		function(){
+			$(this).css("text-decoration", "none");
+		});
+
+	$(".sm-icon").hover(
+		function(){
+			$(this).css("color", "gray");	
+		},
+		function(){
+			$(this).css("color", "black");
+		});
+
+	$("#logo").hover(
+		function(){
+			console.log("hover works");
+			$(this).css("color", "gray");
+		},
+		function(){
+			$(this).css("color", "black");
+		});
+
+	if ($("body").is(".home")){
+		slideshow();
+		$(".profile").hover(
+		function(){
+			$(this).css("filter", "grayscale(100%)");
+
+			var $profileName = $("h3", this).text();
+			console.log("Profilename: " + $profileName);
+			
+			for (var i=0; i<profiles.length; i++){
+				if ($profileName === profiles[i].firstName){
+					console.log("match found");
+					var $hoveredProfile = profiles[i];
+					console.log($hoveredProfile.about);
+				};
+			};
+
+			$( "#second-container" ).append("<div id='profile-info-container'></div>");
+			$("#profile-info-container").append("<p>" + $hoveredProfile.about + "</p>");
+		},
+		function(){
+			$(this).css("filter", "grayscale(0%)");
+			$( "#profile-info-container" ).remove();
+
+		});	
+
+		//div flip
+		$( ".homeContent" ).hover(
+  			function() {
+  				//$(this).css("backgroundColor", "white");
+      			$(this).css("transform", "rotateY(180deg)");
+      			
+      			//$(this).css("opacity", "0.7");
+      			$(this).css("color", "black");
+      		}, function() {
+      			//$(this).css("backgroundColor", "transparent");
+    			$(this).css("transform", "rotateY(0deg)");
+    			$(this).css("color", "white");	
+  			});
+		};
+	
+	if ($("body").is(".store")){
+		displayProducts();
+		
+		$(".fa-shopping-cart").hover(
+			function(){
+				$(this).css("color", "gray");
+			},
+			function(){
+				$(this).css("color", "black");
+			});
+		$(".add-to-cart-button").hover(
+			function(){
+				$(this).css("backgroundColor", "gray");
+			},
+			function(){
+				$(this).css("backgroundColor", "#bfbfbf");	
+			});
+	};
+});
+
 
 /*
 var c = document.createDocumentFragment();
