@@ -89,13 +89,12 @@ a:link{
 	display: flex;
 	justify-content: center;
 	position: relative;
-	background-color: red;
 	/*background-color: #2377ff;*/
 	/*background-color: #4f4f4f;*/
-	/*background-image: url("Grass.jpg");
+	background-image: url("Grass.jpg");
 	background-size: 100%;
 	background-position: top;
-    	background-repeat: no-repeat;*/
+    	background-repeat: no-repeat;
 	height: 300px;
 	width: 100%;
 	/*margin-top: 150px;*/
