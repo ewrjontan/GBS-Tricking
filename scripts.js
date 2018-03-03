@@ -220,11 +220,12 @@ $(document).ready(function(){
 
 	if ($("body").is(".home")){
 		slideshow();
+
 		$(".profile").hover(
 		function(){
 			$(this).css("filter", "grayscale(100%)");
 
-			var $profileName = $("h3", this).text();
+			/*var $profileName = $("h3", this).text();
 			console.log("Profilename: " + $profileName);
 			
 			for (var i=0; i<profiles.length; i++){
@@ -236,11 +237,11 @@ $(document).ready(function(){
 			};
 
 			$( "#second-container" ).append("<div id='profile-info-container'></div>");
-			$("#profile-info-container").append("<p>" + $hoveredProfile.about + "</p>");
+			$("#profile-info-container").append("<p>" + $hoveredProfile.about + "</p>");*/
 		},
 		function(){
 			$(this).css("filter", "grayscale(0%)");
-			$( "#profile-info-container" ).remove();
+			/*$( "#profile-info-container" ).remove();*/
 
 		});	
 
